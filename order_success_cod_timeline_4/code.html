@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wishlist - Nature Boutique</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#064c39",
+              "primary-light": "#0a6b51",
+              "background-light": "#f6f8f7",
+              "background-dark": "#10221d",
+              "emerald-custom": "#10b981",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --bg-soft: #F0FDF4;
+        }
+        .glass-nav {
+            background: rgba(246, 248, 247, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(6, 76, 57, 0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(16, 34, 29, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .product-card-shadow {
+            transition: all 0.3s ease;
+        }
+        .product-card-shadow:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(6, 76, 57, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-[var(--bg-soft)] dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display min-h-screen flex flex-col">
+<header class="fixed top-0 w-full z-50 glass-nav transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<div class="flex-shrink-0 flex items-center gap-2">
+<span class="material-icons text-primary dark:text-emerald-400 text-3xl">forest</span>
+<span class="font-bold text-xl tracking-tight text-primary dark:text-emerald-50">Nature Boutique</span>
+</div>
+<nav class="hidden md:flex space-x-8">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 font-medium transition-colors" href="#">Shop</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 font-medium transition-colors" href="#">Collections</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 font-medium transition-colors" href="#">Our Story</a>
+</nav>
+<div class="flex items-center space-x-4">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-emerald-400 transition-colors">
+<span class="material-icons">search</span>
+</button>
+<button class="text-primary dark:text-emerald-400 transition-colors relative">
+<span class="material-icons">favorite</span>
+<span class="absolute -top-1 -right-1 bg-emerald-custom text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">8</span>
+</button>
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-emerald-400 transition-colors relative">
+<span class="material-icons">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-emerald-400 font-bold border border-primary/20">
+                    JS
+                </div>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+<div class="mb-12">
+<h1 class="text-4xl font-extrabold text-primary dark:text-emerald-50 mb-2">Your Nature Collection</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400">8 items saved to your wishlist</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img alt="Forest Green Tee" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaX_8GmjFolloulRcJj99_pzFikvN6khRXYw0Cpib2Gt6zY3YfFls_zB8mK0FSh8755PsUtdwUjadPNbvI91py3rJlEbr7HgzXXWkLN_ZuXamdkXfTurI_JYTatuYMwq9fJtpS_mS2YXjrzyKrVYHvAxsOtE8mszIGISqVTyrZgwnFo5KIZqKYi6ugOVyVqnny8RHrCHM1JXDnd4wKVffZMTOa2e4FPC4RqsCAL8ELqOnyz4hr8J9pnvLQsIPn0R2xmKkvCOeQfq8"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Organic Cotton</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">Forest Canopy Tee</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$32.00</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img alt="Eco Canvas Tote" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ-PZQ5LB3VDOMTQXGyvONW52fA5TJ3dlZX64I74EalUkzHm7YBUOVc5DKqGUAnGGFl07SSWjst1HJG5tGOhFMNfqX1LmIjGGdoTKBwuc5zjOCmDGkoRDZJeqJ1AP_C3TtxwEeYQYk60nh2FqaM7486O-gMOqFb6GvMggOqFAIlXs7636fNwr1i1fm0gntXoo_iGeIWrmk0vh7d4YoOPzZ8HiVE7klkp8stEr82g2cTOy9iu-MxXqhGgCovFFWgYW6UIoSlNPKORI"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Sustainable</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">Eco-Trail Canvas Tote</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$24.00</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden bg-slate-100">
+<img alt="Amber Honey Jar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA55wEiIeTuV3w95habkydGrIVFx0Dg-e4gIpJK6lRezDKhGDIgDo5AqjhX9mYLsLsqeHm7SU6wuspHvIlrDKUDKs4C3FOMHyOAQDOAzfDhW3qn-iY3V2JSxNM5buXcSsOCQJ-sYxi1bxwubsqwRZzzdDJw0u1hbz-iYV7PCzne-ID-6-j7gmlVPs2R1MQxHehzHN14MdrKEpetO9dojZCvl13Q8X4orxp1Nrg3e7J30bUtteNGOlYTB6iUxZyUELbZb3jLklQSgZQ"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Home &amp; Living</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">Wildflower Honey Set</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$45.00</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img alt="Mountain Mist Hoodie" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB11QPLV7EotUkqhNDqOjYny7xZ2x9VIzSzJ2KDhpkfcgdP3hVZHCllVw3gt1nj0BB_PgdO9HWaBXA8sy61Gw89i5PcsJnpkEoUA1jL-b99yXiq1IPMQ3SupmJSZQqaPPBOpMKu29YPH8TdBKH-xPKqE4izW90uG3oGG_WynFMhv1S_5gjJZYNh06O1zV48_50COVAEYe-Tini4KgyyTXi3XjFSWkVLPo0B3TWmAGN-etYw8nTRmo8pHIlgRLs_OolBRKEdg5RApAE"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Premium Wear</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">Mountain Mist Hoodie</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$68.00</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img alt="Natural Journal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9HxCYRVE_cI7HE1Pb_mTGf8QQAMqUijgWbtEOW-vnmhurPb6wj7Xo7rqCZm-eBc_16i4CldojEQEAQXC1bV5FGjggQaa2pGWsttouEz_uH31NzHKEmzKpjvyQBi3uV-KD2RMQEvQLAtMwRyX7BCnQKRHAwYA6gM_3gSJgHq2IGaEOngdcmSi-MQIEcpj7FDG-8jTppORw2AFXge7Is3sKPczxJ5b2l9oT-8LjPmMRmV8xAaXml09fSrHOJdt0vJcJ1imq0CTe25c"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Stationery</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">Recycled Fiber Journal</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$18.50</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img alt="Blanket" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMPPN71UCvRgwBE3m3rfIYHTRXbg_BYTivqt_oJOwYakrs5MWTlD4aQxn9T8FBglwtETbH5OxE_AiIjA8n_CwamE8PAkN3n7kFWoE-BoTD8-HiS7zBYM-dvMygnEKdNpJuZdPKcnBRc4u-TRdKQILYKgU6aLzj2yAJFSQmoB7bCWwKqemi7UP9f4rA1v6mIksm5sGLYtp87xtKMPWfevjPfRnrVp-WUTpv00ZwonzBM-rFKgVovYGv5YJsdKjvrxr6EehG0YgDAbs"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Home Comfort</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">Alpine Wool Throw</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$85.00</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img alt="Sandals" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPXCASveftmPqjbu1Rb3qGWKOsqHZtgMdGusuiN-qP4zyfo1fGO5BCEhU5PZS0v_6Hb4zMVmsK5pDmxnrvvdREbnj7-k5hlS2RqvvsuHX8_xwj8h78W2xqQ2VqG0mO9XWZOYrQsbNqLf6o4e6qg7viUiksW0-9mW9W9WrSXB7mqu-aSsc2n7ydGgSS7dwz_LomI0jYz3Q62jKJshi9XJRHY-sWazr5G3cERnSzeRC70DUf6L6BAPrWvFtgrvj67kUqSdsULQjVmz0"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Footwear</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">River Rock Sandals</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$54.00</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden product-card-shadow border border-emerald-100/50 dark:border-slate-700">
+<div class="relative group aspect-[4/5] overflow-hidden">
+<img alt="Cap" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhE6muXSoALAHUcS5gPh-faMTJ9zz9yRNPEx5M6RzKByID9p25e3MuMQlJUlbL1wPHpA_zma6JbHXlcdDjgr8-TlgE1PhfZpWbqbiYGL5fo-4F6yd3fHOlwcOIrbZkxalVIr9XYryb9D3X-WtXS0zdxpTWze9Y-12vl5gPiYLE42VJjp2PQjN6mW5cXPY6ZAmm8TkpqmuJNK7D5A-TtkNG-3-qgjmQQfNnptUephD0-Veznpg__e5XvqKIGX-MAD4eykZVOGcXASc"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur rounded-full flex items-center justify-center text-emerald-custom shadow-sm transition-transform hover:scale-110">
+<span class="material-symbols-outlined text-2xl">favorite</span>
+</button>
+</div>
+<div class="p-5">
+<p class="text-xs font-bold text-emerald-custom uppercase tracking-wider mb-1">Accessories</p>
+<h3 class="font-bold text-slate-800 dark:text-slate-100 mb-1">Evergreen Hemp Cap</h3>
+<p class="text-lg font-bold text-primary dark:text-emerald-400 mb-4">$28.00</p>
+<button class="w-full bg-primary hover:bg-primary-light text-white font-bold py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-icons text-sm">shopping_cart</span>
+                    Move to Cart
+                </button>
+</div>
+</div>
+</div>
+<div class="mt-16 flex justify-center">
+<a class="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-800 text-primary dark:text-emerald-400 border border-primary/20 dark:border-emerald-500/30 hover:border-primary hover:bg-primary/5 font-bold rounded-xl transition-all duration-300" href="#">
+<span class="material-icons">arrow_back</span>
+            Continue Browsing Catalog
+        </a>
+</div>
+</main>
+<footer class="bg-primary dark:bg-black text-white mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons text-emerald-400">forest</span>
+<span class="font-bold text-xl tracking-tight">Nature Boutique</span>
+</div>
+<p class="text-emerald-100 text-sm leading-relaxed">
+                    Premium organic prints inspired by the wild. We bring the serenity of nature to your wardrobe.
+                </p>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-4 text-emerald-50">Shop</h4>
+<ul class="space-y-2 text-sm text-emerald-100/80">
+<li><a class="hover:text-white transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Men</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Women</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Accessories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-4 text-emerald-50">Support</h4>
+<ul class="space-y-2 text-sm text-emerald-100/80">
+<li><a class="hover:text-white transition-colors" href="#">Order Status</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Shipping &amp; Delivery</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-white transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-lg mb-4 text-emerald-50">Stay Connected</h4>
+<p class="text-sm text-emerald-100/80 mb-4">Join our newsletter for exclusive eco-tips and offers.</p>
+<div class="flex gap-2">
+<input class="w-full px-3 py-2 bg-primary-light/30 border border-emerald-500/30 rounded text-sm text-white placeholder-emerald-200/50 focus:outline-none focus:ring-1 focus:ring-emerald-400" placeholder="Your email" type="email"/>
+<button class="bg-emerald-500 hover:bg-emerald-400 text-primary font-bold px-4 py-2 rounded text-sm transition-colors">Join</button>
+</div>
+</div>
+</div>
+<div class="border-t border-emerald-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-emerald-200/60">
+<p>© 2023 Nature Boutique. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:text-white" href="#">Privacy</a>
+<a class="hover:text-white" href="#">Terms</a>
+<div class="flex items-center gap-2">
+<span class="material-icons text-base">public</span>
+<span>United States</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

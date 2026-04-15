@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nature Boutique - Mini Cart</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "primary-dark": "#0eb361", 
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "forest-dark": "#0a1f14",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for the cart items */
+        .cart-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .cart-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .cart-scroll::-webkit-scrollbar-thumb {
+            background-color: rgba(0,0,0,0.1);
+            border-radius: 20px;
+        }
+        .dark .cart-scroll::-webkit-scrollbar-thumb {
+            background-color: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 overflow-hidden h-screen relative">
+<!-- Mock Background Page Content (To show context) -->
+<div class="absolute inset-0 z-0 overflow-y-auto pointer-events-none select-none filter blur-[2px]">
+<!-- Navbar Mockup -->
+<nav class="w-full h-20 px-8 flex items-center justify-between border-b border-gray-200 dark:border-white/5 bg-white/50 dark:bg-black/20">
+<div class="text-2xl font-bold tracking-tight text-forest-dark dark:text-primary">Nature Boutique</div>
+<div class="flex gap-6 text-sm font-medium opacity-60">
+<span>Shop</span>
+<span>Collections</span>
+<span>About</span>
+</div>
+</nav>
+<!-- Hero Section Mockup -->
+<div class="relative w-full h-[600px] bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-r from-forest-dark/80 to-transparent z-10"></div>
+<img alt="Forest background with sunlight filtering through trees" class="w-full h-full object-cover" data-alt="Forest background with sunlight filtering through trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6xL5Uyxi585QCSITLtaCz4tpp15kieuBOgfPzsvIkCFCbqDbeLue-SM8eOOqqnI2PAvlmtAyegQfMeFnsIu97YrF3FXKjj46oY69PvTb_UibK-lKsY8equ5vpiuWNgtLeLO4vMEsa53aHWtVEaINvzgqUwU3csq0G0jRo-JytzFM_uOKeqjsKgqiyYAcqIpsB1Z1MSkfd1ZxAvIU3yPPOcLsxgJUOZqCdXWcSUebnnEU85ZfKy67uwwEdIMGGsZEW7JFmlt2W9aM"/>
+<div class="relative z-20 text-center text-white p-8">
+<h1 class="text-5xl font-bold mb-4">Embrace the Wild</h1>
+<p class="text-lg opacity-90">Premium sustainable apparel for the modern explorer.</p>
+</div>
+</div>
+<!-- Grid Content Mockup -->
+<div class="max-w-7xl mx-auto p-8 grid grid-cols-3 gap-8">
+<div class="aspect-[3/4] bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+<div class="aspect-[3/4] bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+<div class="aspect-[3/4] bg-gray-300 dark:bg-gray-700 rounded-lg"></div>
+</div>
+</div>
+<!-- CART DRAWER OVERLAY -->
+<!-- Ideally, use a transition to fade in bg-black/40 and slide in the drawer -->
+<div class="fixed inset-0 z-50 flex justify-end">
+<!-- Backdrop Scrim -->
+<div class="absolute inset-0 bg-forest-dark/40 backdrop-blur-sm transition-opacity opacity-100"></div>
+<!-- Drawer Panel -->
+<div class="relative w-full max-w-md h-full bg-white/85 dark:bg-forest-dark/85 backdrop-blur-xl shadow-2xl border-l border-white/20 dark:border-white/5 flex flex-col transform transition-transform translate-x-0">
+<!-- Header -->
+<div class="flex items-center justify-between px-6 py-5 border-b border-gray-200/50 dark:border-white/10 shrink-0">
+<div class="flex items-baseline gap-3">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Shopping Bag</h2>
+<span class="text-sm font-medium text-primary">3 items</span>
+</div>
+<button class="p-2 -mr-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-white/5 group">
+<span class="material-icons text-xl group-hover:rotate-90 transition-transform">close</span>
+</button>
+</div>
+<!-- Scrollable Cart Items -->
+<div class="flex-1 overflow-y-auto cart-scroll p-6 space-y-6">
+<!-- Item 1 -->
+<div class="group flex gap-4">
+<!-- Thumbnail -->
+<div class="w-24 h-32 shrink-0 rounded-lg overflow-hidden relative bg-gray-100 dark:bg-white/5">
+<img alt="Green t-shirt on hanger" class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="Green t-shirt on hanger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcWlXeuQtho3ABhnWbatLt9G9B3rtnMhSP-3zeQWHuNRuIxqTgvmuUynb-khDtCep-NG_YwFNKfeYO9HPR2QjiPp_PhO7ukK6WwCfQrUy8HunRh0HKu4lJdPcYNMfp8GX2esvI1nulIUXPYL9IdYeS1wXmiS1TGMJHPYSpRHbBiNdrngBJHE-gB5QmXosxrTagHaoX1UP001-6bb2WvHyY0oTmdNd_lGG2vjx_lPvpZeVBu54GKZCc31UEL8OTfV5cp65YWv2li0o"/>
+</div>
+<!-- Details -->
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-gray-900 dark:text-white leading-tight pr-4">Organic Cotton T-Shirt</h3>
+<button class="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-1 -mt-1 -mr-1">
+<span class="material-icons text-lg">close</span>
+</button>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Forest Green / Medium</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<!-- Qty Control -->
+<div class="flex items-center border border-gray-200 dark:border-white/10 rounded-lg h-8 bg-white/50 dark:bg-white/5 backdrop-blur-sm">
+<button class="w-8 h-full flex items-center justify-center text-gray-500 hover:text-primary transition-colors hover:bg-black/5 dark:hover:bg-white/5 rounded-l-lg">
+<span class="material-icons text-sm">remove</span>
+</button>
+<span class="w-8 text-center text-sm font-semibold">1</span>
+<button class="w-8 h-full flex items-center justify-center text-gray-500 hover:text-primary transition-colors hover:bg-black/5 dark:hover:bg-white/5 rounded-r-lg">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<!-- Price -->
+<span class="font-bold text-gray-900 dark:text-primary">$25.00</span>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group flex gap-4">
+<div class="w-24 h-32 shrink-0 rounded-lg overflow-hidden relative bg-gray-100 dark:bg-white/5">
+<img alt="Canvas tote bag with plant print" class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="Canvas tote bag with plant print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7MKpUL2bBvqI6Dna-lmGTH3ac9Jem9BMD2dppBn8cs3X5D2Z1AIb13xyJx4u1Me9rzZEVxIQCgQiDmqHR59dwjfMryeCL_vdl67lRl3CDkKYTQ83_f-xJXqRht-NbtUgT3yxNhmhEvWEvLYrLQ10MyNWL66k0AUXqHW3SXpCf4DuZv_G_1xAfVQbioiJ_CMkmfxOK_THkhOUFq4qtZSdVhDf3dglkhQ_B6Q2UjKA-N4Txd9qXxW0wcTfwgj95mfy_UYvV6aN5o2E"/>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-gray-900 dark:text-white leading-tight pr-4">Botanical Print Canvas Tote</h3>
+<button class="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-1 -mt-1 -mr-1">
+<span class="material-icons text-lg">close</span>
+</button>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Natural / One Size</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center border border-gray-200 dark:border-white/10 rounded-lg h-8 bg-white/50 dark:bg-white/5 backdrop-blur-sm">
+<button class="w-8 h-full flex items-center justify-center text-gray-500 hover:text-primary transition-colors hover:bg-black/5 dark:hover:bg-white/5 rounded-l-lg">
+<span class="material-icons text-sm">remove</span>
+</button>
+<span class="w-8 text-center text-sm font-semibold">2</span>
+<button class="w-8 h-full flex items-center justify-center text-gray-500 hover:text-primary transition-colors hover:bg-black/5 dark:hover:bg-white/5 rounded-r-lg">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<span class="font-bold text-gray-900 dark:text-primary">$30.00</span>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group flex gap-4">
+<div class="w-24 h-32 shrink-0 rounded-lg overflow-hidden relative bg-gray-100 dark:bg-white/5">
+<img alt="Bamboo fiber coffee cup" class="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" data-alt="Bamboo fiber coffee cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUYv9cZ8na1Aw8Rg6CTwQAZaGon2namuh5FW46WsuehbFgsa0g2Vpl0G2qmPGckPv3yla54NCWgyOFRLm3xhVrICtoRjmDVzIbn-fMJIIxntSc0ZQvWcy1HGou4DMnmsF7v5LQD2nRVfXvQCamV--45vsIe3JP-KSS-Rv4gVsg_QXx7YBxam7IytDBUVPPyPFHJNHthSxS0335dtJQ0Tm3lpfzZcynWfiYD_gB8iV2MWKFm5Nao_0S-NvL02XhBQtZi96SAAs51tA"/>
+</div>
+<div class="flex flex-col flex-1 justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="font-bold text-gray-900 dark:text-white leading-tight pr-4">Bamboo Fiber Travel Mug</h3>
+<button class="text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors p-1 -mt-1 -mr-1">
+<span class="material-icons text-lg">close</span>
+</button>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sage Green / 12oz</p>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex items-center border border-gray-200 dark:border-white/10 rounded-lg h-8 bg-white/50 dark:bg-white/5 backdrop-blur-sm">
+<button class="w-8 h-full flex items-center justify-center text-gray-500 hover:text-primary transition-colors hover:bg-black/5 dark:hover:bg-white/5 rounded-l-lg">
+<span class="material-icons text-sm">remove</span>
+</button>
+<span class="w-8 text-center text-sm font-semibold">1</span>
+<button class="w-8 h-full flex items-center justify-center text-gray-500 hover:text-primary transition-colors hover:bg-black/5 dark:hover:bg-white/5 rounded-r-lg">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<span class="font-bold text-gray-900 dark:text-primary">$12.50</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Summary & Actions -->
+<div class="p-6 bg-white/50 dark:bg-forest-dark/50 border-t border-gray-200/50 dark:border-white/10 shrink-0 space-y-4 backdrop-blur-sm">
+<!-- Subtotal -->
+<div class="flex items-end justify-between">
+<div>
+<span class="text-sm font-medium text-gray-500 dark:text-gray-400 block mb-1">Subtotal</span>
+<div class="flex items-center gap-2 text-xs text-primary/80 dark:text-primary/70 bg-primary/10 px-2 py-1 rounded w-fit">
+<span class="material-icons text-[14px]">local_shipping</span>
+<span>COD Available</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">$67.50</span>
+</div>
+</div>
+<!-- Note -->
+<p class="text-xs text-gray-500 dark:text-gray-400 text-center">
+                    Shipping &amp; taxes calculated at checkout.
+                </p>
+<!-- Action Buttons -->
+<div class="grid grid-cols-2 gap-3 pt-2">
+<button class="flex items-center justify-center px-4 py-3.5 border-2 border-primary/40 dark:border-primary/30 text-forest-dark dark:text-primary font-bold rounded-xl hover:bg-primary/5 dark:hover:bg-primary/10 transition-all focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+                        View Full Cart
+                    </button>
+<button class="flex items-center justify-center gap-2 px-4 py-3.5 bg-primary text-forest-dark font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary-dark hover:shadow-primary/30 transition-all focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark">
+                        Order Now (COD)
+                        <span class="material-icons text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

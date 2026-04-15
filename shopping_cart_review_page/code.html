@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart - Nature Boutique</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec80",
+                        "primary-dark": "#0ea85b", 
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#102219",
+                        "soft-mint": "#F0FDF4", // Special background requested
+                        "forest-dark": "#064e3b", // Deep forest green for text
+                        "forest-light": "#ecfdf5", // Very light forest tint
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem", 
+                        "lg": "0.5rem", 
+                        "xl": "0.75rem", 
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+        
+        .quantity-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Navigation (Simplified for Checkout Context) -->
+<header class="bg-white dark:bg-[#152e22] shadow-sm sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Logo -->
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
+<span class="material-icons-outlined text-2xl">eco</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-forest-dark dark:text-primary">Nature Boutique</span>
+</div>
+<!-- Progress Steps -->
+<div class="hidden md:flex items-center space-x-4 text-sm font-medium">
+<div class="flex items-center text-primary">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-white text-xs mr-2">1</span>
+                        Cart
+                    </div>
+<div class="w-12 h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+<div class="flex items-center text-gray-400 dark:text-gray-500">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-xs mr-2">2</span>
+                        Details
+                    </div>
+<div class="w-12 h-0.5 bg-gray-200 dark:bg-gray-700"></div>
+<div class="flex items-center text-gray-400 dark:text-gray-500">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 text-xs mr-2">3</span>
+                        Complete
+                    </div>
+</div>
+<!-- Secure Icon -->
+<div class="flex items-center gap-2 text-forest-dark dark:text-primary/80">
+<span class="material-icons-outlined text-sm">lock</span>
+<span class="text-xs font-semibold uppercase tracking-wider">Secure Checkout</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow py-12 px-4 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto">
+<h1 class="text-3xl font-bold text-forest-dark dark:text-white mb-8">Shopping Cart <span class="text-lg font-medium text-gray-500 ml-2">(3 items)</span></h1>
+<div class="lg:grid lg:grid-cols-12 lg:gap-12 items-start">
+<!-- Left Column: Cart Items -->
+<div class="lg:col-span-8">
+<!-- Cart Table Container -->
+<div class="bg-white dark:bg-[#1a3528] rounded-2xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<!-- Table Header (Hidden on small screens) -->
+<div class="hidden sm:grid grid-cols-12 gap-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/30 px-6 py-4 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+<div class="col-span-6">Product</div>
+<div class="col-span-3 text-center">Quantity</div>
+<div class="col-span-3 text-right">Total</div>
+</div>
+<!-- Item 1 -->
+<div class="p-6 border-b border-gray-100 dark:border-gray-700 sm:grid sm:grid-cols-12 sm:gap-4 sm:items-center group hover:bg-soft-mint/30 dark:hover:bg-white/5 transition-colors">
+<!-- Product Info -->
+<div class="col-span-6 flex items-center gap-6">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 border border-gray-100 dark:border-gray-700">
+<img alt="White organic cotton t-shirt on a hanger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Organic cotton white t-shirt hanging in minimalist setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_pAINGqoDYlcj4dNqbEpIXT9l3UrSHJMMVusJlpPuR-CgP7nRs7kNiZWe3hHggqFiuHwglirLehUQWcQwWGnmvJO5-C8bWrp9Ge5-Q3XYxnXcHGMwhxk0U02l72Zk8jagsnSOjfVIltUA7AiA2QI7AykI1QsAhKUDTC456yNehMHuidGR_XIUMOm_yx4dAMwgBgN9zW7TjYhSsvW-MXKuJlKdOHTQgM_NCdYkH2ZEU35J6ZYfGV_6dpe17SBrwP1J7i1i1-PUyNo"/>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300 uppercase">Best Seller</span>
+</div>
+<h3 class="font-bold text-lg text-forest-dark dark:text-white">Organic Cotton Tee</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Forest Green / Size M</p>
+<button class="mt-2 text-xs text-red-500 hover:text-red-600 font-medium flex items-center gap-1 transition-colors">
+<span class="material-icons-outlined text-sm">delete_outline</span> Remove
+                                    </button>
+</div>
+</div>
+<!-- Quantity -->
+<div class="col-span-3 mt-4 sm:mt-0 flex justify-center">
+<div class="flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<input class="w-10 text-center bg-transparent border-none text-sm font-semibold text-gray-800 dark:text-white p-0 focus:ring-0" readonly="" type="text" value="1"/>
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded bg-primary text-white shadow-md shadow-primary/30 hover:bg-primary-dark transition-colors">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<!-- Price -->
+<div class="col-span-3 mt-4 sm:mt-0 text-right">
+<span class="block text-xl font-bold text-gray-900 dark:text-white">$35.00</span>
+<span class="block text-xs text-gray-400 line-through">$45.00</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-6 border-b border-gray-100 dark:border-gray-700 sm:grid sm:grid-cols-12 sm:gap-4 sm:items-center group hover:bg-soft-mint/30 dark:hover:bg-white/5 transition-colors">
+<div class="col-span-6 flex items-center gap-6">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 border border-gray-100 dark:border-gray-700">
+<img alt="Red Nike shoe on white background" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Red sport sneaker product shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNWm-Q1vMHHfJImh84Z1Dys_c41SKqqOpr0AIMMFXWArFwaWM5-5fnTHuTYZYapXu6v9u8Kl9kaubgy0Z3U95yYb8pMJ3URLArvdiUCKuOlN91H2OW7POCmW6ggzpvdQEd9nKl7zJSoRftMimV7PFjPZxJuh5AAyN3UA2V-UPi-Sr7i_9pIcDltGnTcl8-zCS5SrH4FoHdmMG5jK-xqaRLw6HbkPGy1qYPfFEhNoRjElt_g6PnEpzGbkt62OBa2C6gDP-BaNUWFyY"/>
+</div>
+<div>
+<h3 class="font-bold text-lg text-forest-dark dark:text-white">Eco-Trail Sneakers</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Moss / Size 9.5</p>
+<button class="mt-2 text-xs text-red-500 hover:text-red-600 font-medium flex items-center gap-1 transition-colors">
+<span class="material-icons-outlined text-sm">delete_outline</span> Remove
+                                    </button>
+</div>
+</div>
+<div class="col-span-3 mt-4 sm:mt-0 flex justify-center">
+<div class="flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<input class="w-10 text-center bg-transparent border-none text-sm font-semibold text-gray-800 dark:text-white p-0 focus:ring-0" readonly="" type="text" value="1"/>
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded bg-primary text-white shadow-md shadow-primary/30 hover:bg-primary-dark transition-colors">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="col-span-3 mt-4 sm:mt-0 text-right">
+<span class="block text-xl font-bold text-gray-900 dark:text-white">$89.00</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-6 sm:grid sm:grid-cols-12 sm:gap-4 sm:items-center group hover:bg-soft-mint/30 dark:hover:bg-white/5 transition-colors">
+<div class="col-span-6 flex items-center gap-6">
+<div class="relative w-24 h-24 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 border border-gray-100 dark:border-gray-700">
+<img alt="Beige linen shirt texture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of beige linen shirt fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBlJ58lCSaHejgT_EbgnMF799kwcwNwYjSIUDoXy5m6UKY2X0VN2BTvYNIZ_kcHdqnIlCOnxXCwBapuNUxuetidqdulFi4I8SCAYVp9dlzVimNJ0WBRbfxvt-rZyzttztrvc43p1LMdCSlVUOUlmLmkpJ1NaonkfN6q66fcKKUeQCM3e1PxF04jb6H4zRzPMlhR_wHqOIHONucHcI481OWkW5sO1axr0YyfypEpIXcP95Nvm4CtQJw0tZ5AVGhRwNwg5F31SkO_FI"/>
+</div>
+<div>
+<h3 class="font-bold text-lg text-forest-dark dark:text-white">Linen Overshirt</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Sand / Size L</p>
+<button class="mt-2 text-xs text-red-500 hover:text-red-600 font-medium flex items-center gap-1 transition-colors">
+<span class="material-icons-outlined text-sm">delete_outline</span> Remove
+                                    </button>
+</div>
+</div>
+<div class="col-span-3 mt-4 sm:mt-0 flex justify-center">
+<div class="flex items-center bg-gray-50 dark:bg-gray-800 rounded-lg p-1 border border-gray-200 dark:border-gray-700">
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 shadow-sm hover:text-primary transition-colors">
+<span class="material-icons-outlined text-sm">remove</span>
+</button>
+<input class="w-10 text-center bg-transparent border-none text-sm font-semibold text-gray-800 dark:text-white p-0 focus:ring-0" readonly="" type="text" value="2"/>
+<button class="quantity-btn w-8 h-8 flex items-center justify-center rounded bg-primary text-white shadow-md shadow-primary/30 hover:bg-primary-dark transition-colors">
+<span class="material-icons-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="col-span-3 mt-4 sm:mt-0 text-right">
+<span class="block text-xl font-bold text-gray-900 dark:text-white">$110.00</span>
+<span class="block text-xs text-gray-400">($55.00 each)</span>
+</div>
+</div>
+</div>
+<!-- Additional Action -->
+<div class="mt-6 flex justify-between items-center">
+<a class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary transition-colors" href="#">
+<span class="material-icons-outlined mr-1 text-lg">arrow_back</span> Continue Shopping
+                        </a>
+</div>
+</div>
+<!-- Right Column: Sticky Sidebar -->
+<div class="lg:col-span-4 mt-8 lg:mt-0">
+<div class="sticky top-24 space-y-6">
+<!-- Order Summary Card -->
+<div class="bg-white dark:bg-[#1a3528] rounded-2xl shadow-xl shadow-gray-200/50 dark:shadow-none border border-gray-100 dark:border-gray-800 p-6">
+<h2 class="text-xl font-bold text-forest-dark dark:text-white mb-6">Order Summary</h2>
+<!-- Breakdown -->
+<div class="space-y-4 mb-6">
+<div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+<span>Subtotal</span>
+<span class="font-medium text-gray-900 dark:text-white">$234.00</span>
+</div>
+<div class="flex justify-between text-sm text-gray-600 dark:text-gray-300 items-start">
+<div class="flex flex-col">
+<span class="flex items-center gap-1">COD Shipping <span class="material-icons-outlined text-gray-400 text-xs cursor-help" title="Calculated based on weight and distance">info</span></span>
+<span class="text-xs text-gray-400">Cash handling fee included</span>
+</div>
+<span class="font-medium text-gray-900 dark:text-white">$15.00</span>
+</div>
+<div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+<span>Tax estimate</span>
+<span class="font-medium text-gray-900 dark:text-white">$18.72</span>
+</div>
+</div>
+<div class="border-t border-dashed border-gray-200 dark:border-gray-700 my-4"></div>
+<!-- Total -->
+<div class="mb-6">
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-base font-bold text-gray-700 dark:text-gray-200">Total Due at Delivery</span>
+<span class="text-2xl font-extrabold text-forest-dark dark:text-primary">$267.72</span>
+</div>
+<div class="bg-soft-mint dark:bg-primary/10 rounded-lg p-2 flex items-center justify-center gap-2">
+<span class="material-icons-outlined text-primary text-sm">local_shipping</span>
+<p class="text-xs font-medium text-green-800 dark:text-green-300">Pay with Cash or Card upon arrival</p>
+</div>
+</div>
+<!-- Primary Button -->
+<button class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-primary/30 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 group">
+                                Proceed to COD Checkout
+                                <span class="material-icons-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Trust Signals -->
+<div class="mt-6 grid grid-cols-2 gap-2 text-center">
+<div class="flex flex-col items-center p-2 rounded bg-gray-50 dark:bg-white/5">
+<span class="material-icons-outlined text-gray-400 mb-1">verified_user</span>
+<span class="text-[10px] uppercase font-bold text-gray-500">Buyer Protection</span>
+</div>
+<div class="flex flex-col items-center p-2 rounded bg-gray-50 dark:bg-white/5">
+<span class="material-icons-outlined text-gray-400 mb-1">inventory_2</span>
+<span class="text-[10px] uppercase font-bold text-gray-500">Easy Returns</span>
+</div>
+</div>
+</div>
+<!-- Coupon Code Accordion (Collapsed look) -->
+<div class="bg-white dark:bg-[#1a3528] rounded-xl border border-gray-100 dark:border-gray-800 p-4 flex items-center justify-between cursor-pointer hover:border-primary/50 transition-colors group">
+<span class="text-sm font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
+<span class="material-icons-outlined text-primary">local_offer</span>
+                                Add Coupon Code
+                            </span>
+<span class="material-icons-outlined text-gray-400 group-hover:text-primary transition-colors">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Simple Footer -->
+<footer class="bg-white dark:bg-[#152e22] border-t border-gray-100 dark:border-gray-800 py-8">
+<div class="max-w-7xl mx-auto px-4 text-center text-sm text-gray-400 dark:text-gray-500">
+<p>© 2023 Nature Boutique. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

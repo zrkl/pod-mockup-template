@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nature Boutique - Premium Print-on-Demand</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#064c39",
+                        "primary-light": "#0a6b51",
+                        "primary-pale": "#e0ebe8",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#10221d",
+                        "accent": "#10b981", // Emerald
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom Utilities */
+        .glass-header {
+            background: rgba(246, 248, 247, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(6, 76, 57, 0.05);
+        }
+        .dark .glass-header {
+            background: rgba(16, 34, 29, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-card:hover .garment-view {
+            opacity: 0;
+        }
+        .product-card:hover .design-view {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .clip-nature {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-gray-800 dark:text-gray-100 antialiased selection:bg-primary selection:text-white">
+<!-- Sticky Glassmorphism Header -->
+<header class="fixed top-0 w-full z-50 glass-header transition-all duration-300">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Logo -->
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 rounded bg-primary flex items-center justify-center text-white group-hover:rotate-45 transition-transform duration-300">
+<span class="material-icons-outlined text-lg">forest</span>
+</div>
+<span class="text-xl font-bold text-primary dark:text-white tracking-tight uppercase">Nature Boutique</span>
+</a>
+<!-- Navigation -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors" href="#">New Drops</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors" href="#">Men</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors" href="#">Women</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-white transition-colors" href="#">Collections</a>
+</nav>
+<!-- Utility Icons -->
+<div class="flex items-center gap-4">
+<button class="p-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-icons-outlined text-xl">search</span>
+</button>
+<button class="hidden sm:block p-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-icons-outlined text-xl">person_outline</span>
+</button>
+<button class="relative p-2 text-gray-600 dark:text-gray-300 hover:bg-primary/10 rounded-full transition-colors group">
+<span class="material-icons-outlined text-xl">shopping_bag</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-accent rounded-full ring-2 ring-background-light dark:ring-background-dark"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-primary overflow-hidden">
+<!-- Background Decorative Elements -->
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?q=80&amp;w=2074&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay" data-alt="Dark forest texture background overlay"></div>
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent"></div>
+<div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<!-- Hero Content -->
+<div class="space-y-8 z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-wide uppercase backdrop-blur-sm">
+<span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+                    Autumn Collection '24
+                </div>
+<h1 class="text-5xl md:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+                    Wear the Wild. <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">Pay at Your Door.</span>
+</h1>
+<p class="text-lg text-gray-200 max-w-md font-light leading-relaxed">
+                    Premium sustainable hoodies featuring exclusive nature-inspired artwork. Experience our zero-risk Cash on Delivery service today.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<a class="px-8 py-4 bg-white text-primary font-bold rounded hover:bg-gray-100 transition-colors shadow-lg shadow-black/20 text-center" href="#new-drops">
+                        Shop New Arrivals
+                    </a>
+<a class="px-8 py-4 bg-transparent border border-white/30 text-white font-medium rounded hover:bg-white/10 transition-colors flex items-center justify-center gap-2" href="#how-it-works">
+<span class="material-icons-outlined text-sm">play_circle</span>
+                        How COD Works
+                    </a>
+</div>
+<div class="flex items-center gap-6 text-white/60 text-sm pt-4">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-accent">local_shipping</span>
+                        Free Shipping
+                    </div>
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined text-accent">verified_user</span>
+                        Quality Guarantee
+                    </div>
+</div>
+</div>
+<!-- Hero Image / Mockup -->
+<div class="relative z-10 lg:h-[600px] flex items-center justify-center group">
+<!-- Abstract blobs behind -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl opacity-50"></div>
+<!-- Main Product Image -->
+<div class="relative w-full max-w-md aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-black/40 bg-white/5 backdrop-blur-sm border border-white/10 transform rotate-2 hover:rotate-0 transition-all duration-700 ease-out">
+<img alt="Premium forest green hoodie mockup on model in nature" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi4qZCE1dYMRuHRdY0gxQa8al5CVF0wg2Qa1nmrMvEoSeJiX83AYoBY0KYB1V6beg0VE_jCALw0Gc6FjqCb81ZPGanqeuWP_H02eL9qHdCqVdEZoor0gIySJdaM1MV8p-K9Ff7L3kLmz8-_ianur0FJtGpylTgyJ-94Skmud7u8xHSBkgjSiVdfK5tRfvmVCwqjk3NxlktJzpQJ-Yib2Wat_h1BO7kkMSgMl2hxEjFnIMVTSzD-RRSYjwXfH4kKfopzzTyTEjUH3o"/>
+<!-- Floating Badge -->
+<div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur text-primary px-4 py-2 rounded shadow-lg font-bold text-sm">
+                        $65.00
+                     </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Bar / Process -->
+<div class="bg-background-light dark:bg-background-dark py-12 border-b border-primary/10 dark:border-white/5" id="how-it-works">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-primary/10 dark:divide-white/10">
+<div class="flex-1 flex items-center gap-4 p-4">
+<div class="w-12 h-12 rounded bg-primary/10 text-primary dark:text-accent flex items-center justify-center">
+<span class="material-icons-outlined text-2xl">style</span>
+</div>
+<div>
+<h3 class="font-bold text-primary dark:text-white">1. Pick Design</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Choose from 50+ exclusive nature prints.</p>
+</div>
+</div>
+<div class="flex-1 flex items-center gap-4 p-4 md:pl-8">
+<div class="w-12 h-12 rounded bg-primary/10 text-primary dark:text-accent flex items-center justify-center">
+<span class="material-icons-outlined text-2xl">print</span>
+</div>
+<div>
+<h3 class="font-bold text-primary dark:text-white">2. We Print Premium</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">High-quality DTG printing on 100% cotton.</p>
+</div>
+</div>
+<div class="flex-1 flex items-center gap-4 p-4 md:pl-8">
+<div class="w-12 h-12 rounded bg-primary/10 text-primary dark:text-accent flex items-center justify-center">
+<span class="material-icons-outlined text-2xl">payments</span>
+</div>
+<div>
+<h3 class="font-bold text-primary dark:text-white">3. Pay at Door</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Zero upfront cost. Inspect, then pay.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- New Drops Grid -->
+<section class="py-20 bg-background-light dark:bg-background-dark" id="new-drops">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-3xl md:text-4xl font-bold text-primary dark:text-white mb-2">New Drops</h2>
+<p class="text-gray-600 dark:text-gray-400">Fresh from the forest. Limited edition prints.</p>
+</div>
+<a class="hidden md:flex items-center gap-1 text-primary dark:text-accent font-semibold hover:gap-2 transition-all" href="#">
+                    View All <span class="material-icons-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="product-card relative w-full aspect-[4/5] bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden mb-4">
+<!-- Mockup View (Garment) -->
+<div class="garment-view absolute inset-0 z-10 transition-opacity duration-500 ease-in-out">
+<img alt="Person wearing dark green hoodie with minimal print" class="w-full h-full object-cover" data-alt="Person wearing dark green hoodie with minimal print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB57kJDi6cqOKUSIiN8fWLLyB94b3jy9dfdvGGsEL3PY6DebtW5UjtlElwq14TX6ad11vJcwocOlR6Yo2EZT32E0WYPqIWju60e4o5-CzyZeD6uHVFtgNXVlo_OrDxIGdBTGjtMtO6jYnzKkwv1cQgiiQRNNWO7Bz7m5ja6V8TukVvN_4SUOnedsQROHihIfme9qPoLMIb8OiU3tv-s20Ccq_havpkAMLScUuThlrMMV4G8V9d0-WlcRYLfshx2fKRLxTxi8mSjvkI"/>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">COD</div>
+</div>
+<!-- Design View (Flat Graphic) -->
+<div class="design-view absolute inset-0 z-0 opacity-0 bg-primary/5 flex items-center justify-center transition-all duration-500 ease-in-out">
+<img alt="Detailed graphic art of a geometric deer head" class="w-3/4 h-3/4 object-contain drop-shadow-xl mix-blend-multiply dark:mix-blend-normal" data-alt="Detailed graphic art of a geometric deer head" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBNDGofSY2i3i75mJyMXgI3HY3ZDH5t0Fkonrr3LOnUSIabAaFfGgSWXJYH-PCk9rG0DHIcT0hLdHEizrI-V-4uK0abLjIj87lFkjZ90O1rjD2XLMQINX8Nap4AxuJFCJB6-kIA7E2kuNTO08fVLId6bqGx7YYS99XDxZn6qs-on8BRIFSy2_eiJ0jZYBDJ-8B9DZQbMgsZi7epQbD0rSAjeUciTBcBG7PXDY-9TUC7eg7cgHOeINPqUWgWcsJdQ25k4FdiFOPbRA"/>
+</div>
+<!-- Quick Add Button -->
+<button class="absolute bottom-4 right-4 z-20 w-10 h-10 bg-white dark:bg-primary text-primary dark:text-white rounded-full shadow-lg flex items-center justify-center translate-y-14 group-hover:translate-y-0 transition-transform duration-300">
+<span class="material-icons-outlined">add</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Nordic Stag Hoodie</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Heavyweight Cotton</p>
+</div>
+<span class="font-medium text-primary dark:text-accent">$59.00</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="product-card relative w-full aspect-[4/5] bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden mb-4">
+<div class="garment-view absolute inset-0 z-10 transition-opacity duration-500 ease-in-out">
+<img alt="White t-shirt mockup with botanical print" class="w-full h-full object-cover" data-alt="White t-shirt mockup with botanical print" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2tUWovRQHfDMy2D0U88Jy8Uhc2CfzVA1IpeZRykErjkmGAoMMVMTl-l8zprX2rQFmPb2LBK11n2jFRaMzhI9IVJInrDEBmwoe4ljM1VOVmC8dvvPwL_EMpD2PzXdzqWYpnW0lqAHb3W3Jsa7HF1fkYQGa19P-PPbVqQoEgF2i-UIBa7k1-y9JKQJSAM24zAvTRU2nx1qedCLQIh72J6GpO1Ix9Gzd3gJFBwjyjVu6ip5Yg116DmPGr49pF6fFCozla9MwT8bD1Es"/>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">COD</div>
+</div>
+<div class="design-view absolute inset-0 z-0 opacity-0 bg-primary/5 flex items-center justify-center transition-all duration-500 ease-in-out">
+<img alt="Detailed botanical fern illustration graphic" class="w-3/4 h-3/4 object-contain drop-shadow-xl mix-blend-multiply dark:mix-blend-normal" data-alt="Detailed botanical fern illustration graphic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCbTpopLeu-9539UJkd1Uci7oDzVyR2gtSnpEVVFUgJVVVScsbmHSS7zYnTf-1aEpEq_eelfrxVna_7bOpaxsJBF75R0CVM4uP1jUMdu95NLZCEE9yz6FunzBC-8f7Nn-j07GKCnY8KKloaMF_bXfpyTuZ-q4l66u3sglPbcD45YHVR33YLcQ-V0r3ABt9SDDTZ-ts9hF6_uH5Hc6dRh_GFFY0pSumW_XhT9dlPK5AvC17PFAtgGZ9SAMP-fhiQXwhyDBcZuqaQQg"/>
+</div>
+<button class="absolute bottom-4 right-4 z-20 w-10 h-10 bg-white dark:bg-primary text-primary dark:text-white rounded-full shadow-lg flex items-center justify-center translate-y-14 group-hover:translate-y-0 transition-transform duration-300">
+<span class="material-icons-outlined">add</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Fern Whisper Tee</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Organic Blend</p>
+</div>
+<span class="font-medium text-primary dark:text-accent">$35.00</span>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer">
+<div class="product-card relative w-full aspect-[4/5] bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden mb-4">
+<div class="garment-view absolute inset-0 z-10 transition-opacity duration-500 ease-in-out">
+<img alt="Model wearing yellow oversized hoodie" class="w-full h-full object-cover" data-alt="Model wearing yellow oversized hoodie" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh6Jv2KFrvUey1vZ5q9DV_5Kjn1XtimKnjIPyi-dCLGY4QfFe328u-pqM7Xh30aURaySNLF39XB85K4BXfjN5PR4hUBnFk66G5vf8eoNZ1L793RNO4PX7DcAHkbmVZl3h3f9hUamphqUAH2c-4_WHZflYb7U5A5d71aYcyvV80NRaS9kXA1gr7dN1SOclQ42ZOMwQ81F1Yu4txuyJrpYLZD_cSCa-4EJmH4GuE5Q1qAJL_YivWxb2H75xvjGrTs5cAyux9g8W3qrA"/>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">COD</div>
+</div>
+<div class="design-view absolute inset-0 z-0 opacity-0 bg-primary/5 flex items-center justify-center transition-all duration-500 ease-in-out">
+<img alt="Abstract mountain landscape line art" class="w-3/4 h-3/4 object-contain drop-shadow-xl mix-blend-multiply dark:mix-blend-normal" data-alt="Abstract mountain landscape line art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXMCGWQAsPxAjD4z6uxmQpCb1fkWUNQR2si9SsmDwal_J2uAOYsgxJEfCFeSbDCXuYy0QQRoBhB5ZrJK4rlc0ig-YRWO5jsWTcjWKeYdKNOVmZXB0cw1vQFvKxj0j4imzyfa3iVf7Ofg_bk1oviNSn0usf4k0gqUT7FFElXEJj9-mpZxGANn1SUjNaNRrHZ_S66gyJIHscTcHMA9x-RFu1NGYdxAtwMRIhFfydE8ZViKRM32FGPUbmpAtoplvaRUzxM7RiiasNcEw"/>
+</div>
+<button class="absolute bottom-4 right-4 z-20 w-10 h-10 bg-white dark:bg-primary text-primary dark:text-white rounded-full shadow-lg flex items-center justify-center translate-y-14 group-hover:translate-y-0 transition-transform duration-300">
+<span class="material-icons-outlined">add</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Alpine Gold Hoodie</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Unisex Fit</p>
+</div>
+<span class="font-medium text-primary dark:text-accent">$62.00</span>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group cursor-pointer">
+<div class="product-card relative w-full aspect-[4/5] bg-gray-200 dark:bg-gray-800 rounded-lg overflow-hidden mb-4">
+<div class="garment-view absolute inset-0 z-10 transition-opacity duration-500 ease-in-out">
+<img alt="Man in black t-shirt looking away" class="w-full h-full object-cover" data-alt="Man in black t-shirt looking away" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa3HB0GcNrWI_pqCc2ZdeuahAc0SzePtpCGipspKOE1oh99pcctyuLCBgWVpVSsndX4fpS_qYbBhO9b1xPd3wClb3txm55ClM1PyZHw-xhq_lcCsMlcf2tOCyhRByf0fjtxvASwecvs6tZcRrgRfzMkR6vXGxVFH6CWsnbkyccprGmrx32QI2tnZal3qYPZbd2BCF7xCAqncrs-AHymv0UnzIUaKgKK7wSGYKuGsXIzjLiVwyEdudBYFuZc2Pdg0Mka5Tda1ckTZs"/>
+<div class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-2 py-1 rounded">COD</div>
+</div>
+<div class="design-view absolute inset-0 z-0 opacity-0 bg-primary/5 flex items-center justify-center transition-all duration-500 ease-in-out">
+<img alt="Space galaxy nebula graphic art" class="w-3/4 h-3/4 object-contain drop-shadow-xl mix-blend-multiply dark:mix-blend-normal" data-alt="Space galaxy nebula graphic art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2V1JAKnnj9vWZDQLRERs0MZPdtv4G43bRwTKrVt9DawpvDf9s59BYy3skOZ5G4G2An_n4ncOkCLIPyeVCAAZJjmksM_44BysgZB5Cy680i6C_p0nTXGfv31XMICSfwwr1bdG23G1zcIDIDbSRLmG3fOuNkvrgmtdcRAWcW_sAk96-rZqFzXnsj0sdBkHs6AHxAMbGZ-g2SE_UxwQDD4P_XOMVlym_7hLsi3OhveWvatN13dU8rFshrsH3eWfJn1V4qBHQ9nZJuYQ"/>
+</div>
+<button class="absolute bottom-4 right-4 z-20 w-10 h-10 bg-white dark:bg-primary text-primary dark:text-white rounded-full shadow-lg flex items-center justify-center translate-y-14 group-hover:translate-y-0 transition-transform duration-300">
+<span class="material-icons-outlined">add</span>
+</button>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Cosmic Night Tee</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400">Slim Fit</p>
+</div>
+<span class="font-medium text-primary dark:text-accent">$38.00</span>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center md:hidden">
+<a class="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-700 rounded text-sm font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+                    View All Products
+                </a>
+</div>
+</div>
+</section>
+<!-- Collection Teaser -->
+<section class="py-20 bg-gray-50 dark:bg-black/20">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-2xl overflow-hidden bg-primary text-white relative">
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518173946687-a4c8892bbd9f?q=80&amp;w=987&amp;auto=format&amp;fit=crop')] bg-cover opacity-10 mix-blend-overlay" data-alt="Forest texture overlay"></div>
+<div class="p-12 md:p-20 flex flex-col justify-center relative z-10">
+<span class="text-accent font-bold tracking-wider text-sm mb-4 uppercase">Sustainability First</span>
+<h2 class="text-3xl md:text-5xl font-bold mb-6">Plant a Tree with Every Order</h2>
+<p class="text-gray-200 mb-8 max-w-md">We partner with OneTreePlanted to ensure every piece of clothing you buy contributes to global reforestation efforts.</p>
+<div>
+<a class="inline-block px-8 py-3 bg-white text-primary font-bold rounded hover:bg-gray-100 transition-colors" href="#">Learn More</a>
+</div>
+</div>
+<div class="relative h-64 md:h-auto">
+<img alt="Sunlight streaming through dense green forest" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkFERD7Wf4eUTWmaO5F0iSUG3pJvPCPtu8-AsEKkFoZPK_YdanrUcfVpBdikMyujqmgf66tEy9BrX8bklviRzY7oQlPy0zhcRvl9Ff8h2qBKl93YXRL0mKnVVTQEvqnLMgx6qa1OLE1UcLR7bKb6qrvfm1mstWD0CK74bJl5sdwEIpavApEmvVLQ9s8fWBrRtZrCqCnBYIyVPNVHIo2VFzycREh-avN2mXV_az0MJyl-EAY5y07Mn1GJ7aFxnnP8SpLUXpK00cOrA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter -->
+<section class="py-24 bg-background-light dark:bg-background-dark border-t border-gray-200 dark:border-gray-800">
+<div class="max-w-xl mx-auto px-6 text-center">
+<span class="material-icons-outlined text-4xl text-primary dark:text-accent mb-4">mail_outline</span>
+<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">Join the Nature Club</h2>
+<p class="text-gray-500 dark:text-gray-400 mb-8">Get early access to new drops and 10% off your first COD order.</p>
+<form class="flex gap-2">
+<input class="flex-1 rounded border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-primary focus:border-primary" placeholder="Enter your email" type="email"/>
+<button class="px-6 py-2 bg-primary text-white font-semibold rounded hover:bg-primary-light transition-colors" type="button">Subscribe</button>
+</form>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary text-white pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+<div class="space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-icons-outlined">forest</span>
+<span class="font-bold text-xl tracking-tight uppercase">Nature Boutique</span>
+</div>
+<p class="text-sm text-gray-300 leading-relaxed">
+                        Premium print-on-demand apparel inspired by the wild. We bring nature to your wardrobe with zero-risk payments.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-accent">Shop</h4>
+<ul class="space-y-2 text-sm text-gray-300">
+<li><a class="hover:text-white transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Best Sellers</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Hoodies</a></li>
+<li><a class="hover:text-white transition-colors" href="#">T-Shirts</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-accent">Support</h4>
+<ul class="space-y-2 text-sm text-gray-300">
+<li><a class="hover:text-white transition-colors" href="#">Track Order</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Shipping Info</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-accent">Payment Methods</h4>
+<div class="flex flex-wrap gap-2 mb-4">
+<div class="px-3 py-1 bg-white/10 rounded border border-white/20 text-xs font-semibold">Cash On Delivery</div>
+<div class="px-3 py-1 bg-white/10 rounded border border-white/20 text-xs font-semibold">Visa</div>
+<div class="px-3 py-1 bg-white/10 rounded border border-white/20 text-xs font-semibold">Mastercard</div>
+</div>
+<p class="text-xs text-gray-400">Secure transactions encrypted for your safety.</p>
+</div>
+</div>
+<div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+<p>© 2024 Nature Boutique. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

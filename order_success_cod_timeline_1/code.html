@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Success - Nature Boutique</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#064c39",
+              "primary-light": "#0a6b51",
+              "background-light": "#f6f8f7",
+              "background-dark": "#10221d",
+            },
+            fontFamily: {
+              "display": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom styles for timeline connecting lines */
+        .timeline-connector {
+            flex-grow: 1;
+            height: 2px;
+            background-color: #e5e7eb; /* gray-200 */
+            position: relative;
+            top: 1.5rem; /* half of circle height roughly */
+            z-index: 0;
+        }
+        .timeline-step {
+            z-index: 10;
+        }
+        /* Glassmorphism utility */
+        .glass-nav {
+            background: rgba(246, 248, 247, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(6, 76, 57, 0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(16, 34, 29, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display min-h-screen flex flex-col">
+<!-- Glassmorphism Header -->
+<header class="fixed top-0 w-full z-50 glass-nav transition-colors duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Logo -->
+<div class="flex-shrink-0 flex items-center gap-2">
+<span class="material-icons text-primary dark:text-emerald-400 text-3xl">forest</span>
+<span class="font-bold text-xl tracking-tight text-primary dark:text-emerald-50">Nature Boutique</span>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex space-x-8">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 font-medium transition-colors" href="#">Shop</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 font-medium transition-colors" href="#">Collections</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-emerald-400 font-medium transition-colors" href="#">Our Story</a>
+</nav>
+<!-- Icons -->
+<div class="flex items-center space-x-4">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-emerald-400 transition-colors">
+<span class="material-icons">search</span>
+</button>
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-emerald-400 transition-colors relative">
+<span class="material-icons">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary dark:text-emerald-400 font-bold border border-primary/20">
+                        JS
+                    </div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Wrapper -->
+<main class="flex-grow pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+<!-- Success Hero -->
+<div class="text-center mb-12 animate-fade-in-up">
+<div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-emerald-100 dark:bg-emerald-900/30 mb-6 ring-8 ring-emerald-50 dark:ring-emerald-900/20">
+<span class="material-icons text-6xl text-emerald-600 dark:text-emerald-400">check_circle</span>
+</div>
+<h1 class="text-4xl font-bold text-primary dark:text-emerald-50 mb-2">Order Confirmed!</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+                Thank you for your purchase. We've received your order <span class="font-semibold text-primary dark:text-emerald-300">#NB-88219</span> and have started preparing it.
+            </p>
+</div>
+<!-- COD Timeline Section -->
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-lg border border-primary/10 dark:border-slate-700 p-8 mb-8">
+<h2 class="text-xl font-semibold text-primary dark:text-emerald-100 mb-8 flex items-center gap-2">
+<span class="material-icons text-primary/70 dark:text-emerald-400/70">local_shipping</span> 
+                Order Timeline
+            </h2>
+<!-- Timeline Component -->
+<div class="relative">
+<!-- Connector Line Background -->
+<div class="absolute top-6 left-0 w-full h-1 bg-slate-100 dark:bg-slate-700 rounded z-0"></div>
+<!-- Active Progress Line (Assuming step 1 is done) -->
+<div class="absolute top-6 left-0 w-[15%] h-1 bg-emerald-500 rounded z-0 transition-all duration-1000"></div>
+<div class="grid grid-cols-4 relative z-10">
+<!-- Step 1: Order Received (Active/Done) -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-lg shadow-primary/20 border-4 border-white dark:border-slate-800 mb-3 transition-transform group-hover:scale-110">
+<span class="material-icons text-xl">assignment_turned_in</span>
+</div>
+<h3 class="font-bold text-primary dark:text-white text-sm mb-1">Order Received</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 px-2">Processing your request</p>
+</div>
+<!-- Step 2: Printing (Next) -->
+<div class="flex flex-col items-center text-center group opacity-80">
+<div class="w-12 h-12 rounded-full bg-white dark:bg-slate-700 text-primary dark:text-emerald-400 border-2 border-primary/30 dark:border-emerald-500/30 flex items-center justify-center mb-3">
+<span class="material-icons text-xl">print</span>
+</div>
+<h3 class="font-semibold text-slate-700 dark:text-slate-200 text-sm mb-1">Printing</h3>
+<p class="text-xs text-slate-500 dark:text-slate-400 px-2">Custom crafting your item</p>
+</div>
+<!-- Step 3: Out for Delivery -->
+<div class="flex flex-col items-center text-center opacity-50">
+<div class="w-12 h-12 rounded-full bg-white dark:bg-slate-700 text-slate-400 border-2 border-slate-200 dark:border-slate-600 flex items-center justify-center mb-3">
+<span class="material-icons text-xl">local_shipping</span>
+</div>
+<h3 class="font-medium text-slate-600 dark:text-slate-400 text-sm mb-1">Out for Delivery</h3>
+<p class="text-xs text-slate-400 dark:text-slate-500 px-2">Courier on the way</p>
+</div>
+<!-- Step 4: Payment at Door -->
+<div class="flex flex-col items-center text-center opacity-50">
+<div class="w-12 h-12 rounded-full bg-white dark:bg-slate-700 text-slate-400 border-2 border-slate-200 dark:border-slate-600 flex items-center justify-center mb-3">
+<span class="material-icons text-xl">payments</span>
+</div>
+<h3 class="font-medium text-slate-600 dark:text-slate-400 text-sm mb-1">Payment at Door</h3>
+<p class="text-xs text-slate-400 dark:text-slate-500 px-2">Prepare exact cash</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- COD Details Box -->
+<div class="md:col-span-2">
+<div class="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800 rounded-xl p-6 flex flex-col sm:flex-row items-center sm:items-start gap-6 h-full">
+<div class="flex-shrink-0 p-4 bg-emerald-100 dark:bg-emerald-800/40 rounded-full">
+<span class="material-icons text-3xl text-primary dark:text-emerald-400">account_balance_wallet</span>
+</div>
+<div class="flex-grow text-center sm:text-left">
+<h3 class="text-lg font-bold text-primary dark:text-emerald-100 mb-2">Total Cash Amount to Prepare</h3>
+<div class="text-4xl font-extrabold text-primary dark:text-emerald-400 mb-2">$84.50</div>
+<p class="text-sm text-slate-600 dark:text-slate-300">
+                            Please have this amount ready for our delivery partner. We recommend preparing the exact change to ensure a contactless and swift delivery experience.
+                        </p>
+</div>
+</div>
+</div>
+<!-- Order Summary Sidebar -->
+<div class="md:col-span-1">
+<div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 p-6 h-full flex flex-col">
+<h3 class="font-bold text-primary dark:text-white mb-4 border-b border-slate-100 dark:border-slate-700 pb-2">Items Ordered</h3>
+<ul class="flex-grow space-y-4 mb-4">
+<!-- Item 1 -->
+<li class="flex gap-3">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-700 flex-shrink-0 overflow-hidden relative">
+<img alt="Red Nike Sneaker" class="w-full h-full object-cover" data-alt="Close up of a red sneaker on a white background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaX_8GmjFolloulRcJj99_pzFikvN6khRXYw0Cpib2Gt6zY3YfFls_zB8mK0FSh8755PsUtdwUjadPNbvI91py3rJlEbr7HgzXXWkLN_ZuXamdkXfTurI_JYTatuYMwq9fJtpS_mS2YXjrzyKrVYHvAxsOtE8mszIGISqVTyrZgwnFo5KIZqKYi6ugOVyVqnny8RHrCHM1JXDnd4wKVffZMTOa2e4FPC4RqsCAL8ELqOnyz4hr8J9pnvLQsIPn0R2xmKkvCOeQfq8"/>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-semibold text-slate-800 dark:text-slate-200 line-clamp-1">Forest Tee - Large</p>
+<p class="text-xs text-slate-500">Qty: 1</p>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">$25.00</span>
+</li>
+<!-- Item 2 -->
+<li class="flex gap-3">
+<div class="w-12 h-12 rounded bg-slate-100 dark:bg-slate-700 flex-shrink-0 overflow-hidden relative">
+<img alt="White t-shirt hanging" class="w-full h-full object-cover" data-alt="Plain white t-shirt hanging on a rack" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ-PZQ5LB3VDOMTQXGyvONW52fA5TJ3dlZX64I74EalUkzHm7YBUOVc5DKqGUAnGGFl07SSWjst1HJG5tGOhFMNfqX1LmIjGGdoTKBwuc5zjOCmDGkoRDZJeqJ1AP_C3TtxwEeYQYk60nh2FqaM7486O-gMOqFb6GvMggOqFAIlXs7636fNwr1i1fm0gntXoo_iGeIWrmk0vh7d4YoOPzZ8HiVE7klkp8stEr82g2cTOy9iu-MxXqhGgCovFFWgYW6UIoSlNPKORI"/>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-semibold text-slate-800 dark:text-slate-200 line-clamp-1">Eco Canvas Tote</p>
+<p class="text-xs text-slate-500">Qty: 2</p>
+</div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">$50.00</span>
+</li>
+</ul>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-700 text-sm">
+<div class="flex justify-between mb-1">
+<span class="text-slate-500">Subtotal</span>
+<span class="text-slate-800 dark:text-slate-200 font-medium">$75.00</span>
+</div>
+<div class="flex justify-between mb-1">
+<span class="text-slate-500">Shipping</span>
+<span class="text-slate-800 dark:text-slate-200 font-medium">$9.50</span>
+</div>
+<div class="flex justify-between font-bold text-primary dark:text-emerald-400 mt-2 text-base">
+<span>Total</span>
+<span>$84.50</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+<a class="px-8 py-3 bg-primary hover:bg-primary-light text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2" href="#">
+                Continue Shopping
+                <span class="material-icons text-sm">arrow_forward</span>
+</a>
+<a class="px-8 py-3 bg-white dark:bg-slate-800 text-primary dark:text-emerald-400 border border-primary/20 dark:border-emerald-500/30 hover:border-primary hover:bg-primary/5 font-semibold rounded-lg transition-colors duration-300" href="#">
+                View Order Details
+            </a>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-black text-white mt-auto">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<!-- Brand -->
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons text-emerald-400">forest</span>
+<span class="font-bold text-xl tracking-tight">Nature Boutique</span>
+</div>
+<p class="text-emerald-100 text-sm leading-relaxed">
+                        Premium organic prints inspired by the wild. We bring the serenity of nature to your wardrobe.
+                    </p>
+</div>
+<!-- Links 1 -->
+<div>
+<h4 class="font-semibold text-lg mb-4 text-emerald-50">Shop</h4>
+<ul class="space-y-2 text-sm text-emerald-100/80">
+<li><a class="hover:text-white transition-colors" href="#">New Arrivals</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Men</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Women</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Accessories</a></li>
+</ul>
+</div>
+<!-- Links 2 -->
+<div>
+<h4 class="font-semibold text-lg mb-4 text-emerald-50">Support</h4>
+<ul class="space-y-2 text-sm text-emerald-100/80">
+<li><a class="hover:text-white transition-colors" href="#">Order Status</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Shipping &amp; Delivery</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-white transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<!-- Newsletter -->
+<div>
+<h4 class="font-semibold text-lg mb-4 text-emerald-50">Stay Connected</h4>
+<p class="text-sm text-emerald-100/80 mb-4">Join our newsletter for exclusive eco-tips and offers.</p>
+<div class="flex gap-2">
+<input class="w-full px-3 py-2 bg-primary-light/30 border border-emerald-500/30 rounded text-sm text-white placeholder-emerald-200/50 focus:outline-none focus:ring-1 focus:ring-emerald-400" placeholder="Your email" type="email"/>
+<button class="bg-emerald-500 hover:bg-emerald-400 text-primary font-bold px-4 py-2 rounded text-sm transition-colors">
+                            Join
+                        </button>
+</div>
+</div>
+</div>
+<div class="border-t border-emerald-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-emerald-200/60">
+<p>© 2023 Nature Boutique. All rights reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:text-white" href="#">Privacy</a>
+<a class="hover:text-white" href="#">Terms</a>
+<div class="flex items-center gap-2">
+<span class="material-icons text-base">public</span>
+<span>United States</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

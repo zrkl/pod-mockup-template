@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nature Boutique - Single Product Detail View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#064c39",
+                        "primary-hover": "#04382a",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#10221d",
+                        "accent-light": "#e6efed",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for image thumbnails */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Tab animation */
+        .tab-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Navbar -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/10 dark:border-primary/30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<!-- Logo -->
+<div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+<span class="material-icons text-primary text-3xl">forest</span>
+<span class="font-bold text-xl tracking-tight text-primary dark:text-white">Nature Boutique</span>
+</div>
+<!-- Desktop Menu -->
+<div class="hidden md:flex space-x-8">
+<a class="text-primary hover:text-primary-hover font-medium dark:text-slate-200 dark:hover:text-white transition-colors" href="#">New Arrivals</a>
+<a class="text-slate-600 hover:text-primary font-medium dark:text-slate-400 dark:hover:text-white transition-colors" href="#">Men</a>
+<a class="text-slate-600 hover:text-primary font-medium dark:text-slate-400 dark:hover:text-white transition-colors" href="#">Women</a>
+<a class="text-slate-600 hover:text-primary font-medium dark:text-slate-400 dark:hover:text-white transition-colors" href="#">Eco-Collections</a>
+</div>
+<!-- Icons -->
+<div class="flex items-center space-x-4 text-slate-600 dark:text-slate-300">
+<button class="hover:text-primary dark:hover:text-white transition-colors"><span class="material-icons">search</span></button>
+<button class="hover:text-primary dark:hover:text-white transition-colors"><span class="material-icons">favorite_border</span></button>
+<button class="relative hover:text-primary dark:hover:text-white transition-colors group">
+<span class="material-icons">shopping_bag</span>
+<span class="absolute -top-1 -right-1 h-4 w-4 bg-primary text-white text-[10px] font-bold flex items-center justify-center rounded-full group-hover:bg-primary-hover">2</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 w-full">
+<!-- Breadcrumbs -->
+<nav class="flex text-sm text-slate-500 dark:text-slate-400 mb-6 md:mb-10 overflow-x-auto whitespace-nowrap">
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Home</a>
+<span class="mx-2 text-slate-300 dark:text-slate-600">/</span>
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Men</a>
+<span class="mx-2 text-slate-300 dark:text-slate-600">/</span>
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Graphic Tees</a>
+<span class="mx-2 text-slate-300 dark:text-slate-600">/</span>
+<span class="text-primary font-medium dark:text-white">Evergreen Forest Graphic Tee</span>
+</nav>
+<div class="lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start">
+<!-- Left Column: Image Gallery -->
+<div class="lg:col-span-7 flex flex-col-reverse lg:flex-row gap-4 lg:gap-6">
+<!-- Thumbnails (Vertical on desktop, Horizontal on mobile) -->
+<div class="flex lg:flex-col gap-3 overflow-x-auto lg:overflow-y-auto scrollbar-hide lg:w-24 lg:h-[600px] shrink-0 pb-2 lg:pb-0">
+<button class="relative w-20 h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden border-2 border-primary ring-2 ring-primary/20 shrink-0">
+<img alt="T-shirt front view on model" class="w-full h-full object-cover" data-alt="Man wearing white t-shirt in nature" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEMaITmhLz1Quu7tNecoeR3EgJ60Lde1e0_zj0LtPh3IUsQG_ei3DeU-MHR3dBJ48yaFEgvXYUqQKQpHFOUKSCfJYIxXp9ha7iHq_mOf1CqtnZcBJq7jCkylb-F_zCnRY1UlX_v_rnLKWRD4PAH1WifBAKByrjhWO6ZMulrYOEYxpJG0c_iTvRTT4FrXluU3gk1ZuxWUj07Lh1kWYTfGXoFW_XHsJz8ofK4d0Hd5tUMexW0rXi_0o1hJXn_NobVFQZU7vkQaNqe7U"/>
+</button>
+<button class="relative w-20 h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden border border-slate-200 hover:border-primary/50 shrink-0 transition-all opacity-70 hover:opacity-100">
+<img alt="T-shirt back view on model" class="w-full h-full object-cover" data-alt="Close up of white t-shirt fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChlye3RVNIIzCh27tO76W58GF8-U2sVi9vnI9n67nbpCfOnZIR_eJ7ipJ24iEzj1aIOoOWiOkApyUNQKCrHYz8vPZ7Pre1EpuiM84aLDhPoKgXUwbX0RUBRhSmjYwa-9-kt0SbD8ssEgOnUjS1fP5dqGOoFknOMPp9K93P1eYsQGXNrGU14Ds7bLt3TaNEzKiTMZCX94gYeYktja64Kz4RKrlcgXQCWVI1QF1BCSwZn5xP9VMhduqy4j18mcgaZzinuPtJ1boBgQ8"/>
+</button>
+<button class="relative w-20 h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden border border-slate-200 hover:border-primary/50 shrink-0 transition-all opacity-70 hover:opacity-100">
+<img alt="Flat lay of t-shirt with props" class="w-full h-full object-cover" data-alt="Flat lay white t-shirt folded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEYJWlrVn7K_oj5ML9YrSGdUJduLgVQTcDiT8u2OYJB0-iIgu6jQhOgPHbnkqglPbCkN2of-c5Q86FfgYseYXDav0gGU4LwhPD3Ba5FjZtqVp_rbh9N4yKVI9ABlNoELXaH6_B4sy-miPZcXsNrluXpisUuUo5chjxtuujrstzwGjiZXhwPJTx9tzU0w-BaJsIeDbQMeza4eeD78Wv0MVvW4ZnGVlflkqRoWlb4OS6fD-axZyjSuoByFk5gTqp2Hf-G4gkwXlbK0c"/>
+</button>
+<button class="relative w-20 h-20 lg:w-24 lg:h-24 rounded-lg overflow-hidden border border-slate-200 hover:border-primary/50 shrink-0 transition-all opacity-70 hover:opacity-100">
+<img alt="Close up of fabric texture" class="w-full h-full object-cover" data-alt="Detail shot of fabric texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKHWEYEZMehqF-FXXEgEXg6jPud2xCmWZiIGz7GQgo7MBdubzUN7f58Q-OLi8xqSJG1_pUk6axOM-cU4VK1_YUyVAzgt7FOSJuQjTA535mRI44iqPxg5gBGhFWkabYX6tHdDY9pP4caaX166pa8dBkayDSSXNbeyRpHqiRo1Qy3C7UraZxfe_l6RHPsWk8kCFYHlU_tLTbp3PUzeIOofTFUyD_aHIas2TFN7v9so0TQDkl01PYOvGwJq0zopgQIKDYhFRDnYn8sAY"/>
+</button>
+</div>
+<!-- Main Image -->
+<div class="relative w-full rounded-xl lg:rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-800 shadow-sm group">
+<img alt="Main product view" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105" data-alt="Man wearing white t-shirt looking away" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-l35UvROelWyBI39TFa1lAXJ6QJpfaT9lMTlY30CplK_Vmz_VA8i8K1MHmNCht_WA0_6LPPVzlMGavop8XmgcGQo1zaBnS4G5oYLwxKStwkdInzmEZd4C4EV0syV15L5MxTII7x5x7sfMvW-6JZKqExIvc07tp2-gR0W6YTJ9ruglL7U3AehLq8KXM_H2MosOPtKao_ucc0O3a0xcC_fZUpkGhvibqoHD54fLXKLQdY4H_MYiAchGl7440A9CEhVXqAqI7U3BOyc"/>
+<!-- Floating Badge -->
+<div class="absolute top-4 left-4 bg-white/90 dark:bg-background-dark/90 backdrop-blur text-primary text-xs font-bold px-3 py-1.5 rounded-full shadow-sm uppercase tracking-wide">
+                        Organic Cotton
+                    </div>
+<!-- Zoom Icon -->
+<button class="absolute bottom-4 right-4 bg-white/80 hover:bg-white dark:bg-black/50 dark:hover:bg-black/70 p-2 rounded-full shadow-md text-slate-700 dark:text-white transition-all opacity-0 group-hover:opacity-100">
+<span class="material-icons text-xl">zoom_in</span>
+</button>
+</div>
+</div>
+<!-- Right Column: Product Details -->
+<div class="mt-10 lg:mt-0 lg:col-span-5 lg:pl-4">
+<!-- Header Info -->
+<div class="mb-6 border-b border-slate-200 dark:border-slate-700 pb-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-primary font-bold text-sm uppercase tracking-wider bg-primary/10 px-2 py-1 rounded">Best Seller</span>
+<div class="flex items-center gap-1 text-amber-400 text-sm">
+<span class="material-icons text-base">star</span>
+<span class="material-icons text-base">star</span>
+<span class="material-icons text-base">star</span>
+<span class="material-icons text-base">star</span>
+<span class="material-icons text-base">star_half</span>
+<span class="text-slate-500 dark:text-slate-400 ml-1 text-xs">(128 reviews)</span>
+</div>
+</div>
+<h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mb-3 tracking-tight">Evergreen Forest Graphic Tee</h1>
+<div class="flex items-end gap-3">
+<p class="text-2xl font-bold text-primary dark:text-emerald-400">$29.99</p>
+<p class="text-lg text-slate-400 dark:text-slate-500 line-through mb-1">$39.99</p>
+<span class="text-sm font-medium text-red-500 mb-1.5 ml-auto">Save 25%</span>
+</div>
+</div>
+<!-- COD Trust Badge - High Priority -->
+<div class="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-lg p-4 mb-8 flex items-start gap-3">
+<div class="bg-primary/10 p-2 rounded-full flex-shrink-0">
+<span class="material-icons text-primary dark:text-emerald-400">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-primary dark:text-emerald-400 text-sm mb-0.5">Cash on Delivery Available</h4>
+<p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">Pay securely with cash when your order arrives at your doorstep. No credit card required upfront.</p>
+</div>
+</div>
+<!-- Selection Grid -->
+<div class="space-y-6">
+<!-- Colors -->
+<div>
+<h3 class="text-sm font-medium text-slate-900 dark:text-white mb-3">Color: <span class="text-slate-500 font-normal">Forest Green</span></h3>
+<div class="flex items-center space-x-3">
+<button aria-label="Forest Green" class="w-8 h-8 rounded-full bg-[#064c39] ring-2 ring-offset-2 ring-primary ring-offset-background-light dark:ring-offset-background-dark cursor-pointer shadow-sm hover:scale-110 transition-transform"></button>
+<button aria-label="Black" class="w-8 h-8 rounded-full bg-[#1c1c1c] ring-1 ring-slate-200 dark:ring-slate-600 cursor-pointer shadow-sm hover:scale-110 transition-transform hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background-light"></button>
+<button aria-label="White" class="w-8 h-8 rounded-full bg-[#f5f5f5] border border-slate-300 ring-1 ring-transparent cursor-pointer shadow-sm hover:scale-110 transition-transform hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background-light"></button>
+<button aria-label="Navy" class="w-8 h-8 rounded-full bg-[#2c3e50] ring-1 ring-slate-200 dark:ring-slate-600 cursor-pointer shadow-sm hover:scale-110 transition-transform hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background-light"></button>
+</div>
+</div>
+<!-- Sizes -->
+<div>
+<div class="flex justify-between items-center mb-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Size</h3>
+<button class="text-xs text-primary dark:text-emerald-400 hover:underline flex items-center gap-1">
+<span class="material-icons text-[14px]">straighten</span> Size Guide
+                            </button>
+</div>
+<div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+<button class="group relative flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-3 text-sm font-medium hover:border-primary hover:bg-primary/5 dark:hover:border-primary transition-all text-slate-900 dark:text-slate-200 shadow-sm">
+                                XS
+                            </button>
+<button class="group relative flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-3 text-sm font-medium hover:border-primary hover:bg-primary/5 dark:hover:border-primary transition-all text-slate-900 dark:text-slate-200 shadow-sm">
+                                S
+                            </button>
+<button class="group relative flex items-center justify-center rounded-lg border-2 border-primary bg-primary/5 dark:bg-primary/20 py-3 text-sm font-bold text-primary dark:text-white shadow-sm ring-1 ring-primary/20">
+                                M
+                            </button>
+<button class="group relative flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-3 text-sm font-medium hover:border-primary hover:bg-primary/5 dark:hover:border-primary transition-all text-slate-900 dark:text-slate-200 shadow-sm">
+                                L
+                            </button>
+<button class="group relative flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 py-3 text-sm font-medium hover:border-primary hover:bg-primary/5 dark:hover:border-primary transition-all text-slate-900 dark:text-slate-200 shadow-sm">
+                                XL
+                            </button>
+<button class="group relative flex items-center justify-center rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 py-3 text-sm font-medium text-slate-400 cursor-not-allowed opacity-60">
+                                2XL
+                            </button>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="mt-8 flex flex-col sm:flex-row gap-4">
+<!-- Quantity -->
+<div class="flex items-center rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 w-full sm:w-32 h-12">
+<button class="w-10 h-full flex items-center justify-center text-slate-500 hover:text-primary transition-colors">
+<span class="material-icons text-sm">remove</span>
+</button>
+<input class="w-full text-center bg-transparent border-none p-0 text-slate-900 dark:text-white font-medium focus:ring-0" type="number" value="1"/>
+<button class="w-10 h-full flex items-center justify-center text-slate-500 hover:text-primary transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+<!-- Add to Cart Button -->
+<button class="flex-1 bg-primary hover:bg-primary-hover text-white font-bold h-12 rounded-lg shadow-lg hover:shadow-xl hover:shadow-primary/20 transition-all flex items-center justify-center gap-2 transform active:scale-[0.99]">
+<span class="material-icons text-xl">shopping_cart</span>
+                        Add to Cart
+                    </button>
+</div>
+<!-- Quick Info / Shipping Summary -->
+<div class="mt-6 flex items-center gap-6 text-xs font-medium text-slate-500 dark:text-slate-400">
+<div class="flex items-center gap-1.5">
+<span class="material-icons text-green-500 text-sm">check_circle</span>
+                        In Stock
+                    </div>
+<div class="flex items-center gap-1.5">
+<span class="material-icons text-slate-400 text-sm">local_shipping</span>
+                        Free Shipping over $50
+                    </div>
+</div>
+<!-- Minimalist Tabs -->
+<div class="mt-10 border-t border-slate-200 dark:border-slate-700 pt-6">
+<div class="flex border-b border-slate-200 dark:border-slate-700 mb-6">
+<button class="pb-3 px-1 mr-6 text-sm font-bold text-primary border-b-2 border-primary transition-colors">
+                            Material Info
+                        </button>
+<button class="pb-3 px-1 mr-6 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+                            Size Guide
+                        </button>
+<button class="pb-3 px-1 mr-6 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
+                            Shipping Time
+                        </button>
+</div>
+<div class="tab-content text-slate-600 dark:text-slate-300 text-sm leading-relaxed space-y-4">
+<p>Crafted with sustainability in mind, this premium graphic tee is made from 100% combed ring-spun organic cotton. The fabric feels exceptionally soft against the skin while being durable enough for everyday wear.</p>
+<ul class="list-disc pl-5 space-y-1">
+<li>Weight: 180 g/m² (Medium Weight)</li>
+<li>Pre-shrunk fabric to minimize shrinkage</li>
+<li>Eco-friendly water-based inks</li>
+<li>Side-seamed construction for a tailored fit</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products Section (Visual Filler) -->
+<div class="mt-20 border-t border-slate-200 dark:border-slate-700 pt-12">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">You Might Also Like</h2>
+<a class="text-primary font-medium hover:underline text-sm flex items-center gap-1" href="#">View All <span class="material-icons text-sm">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-slate-100 mb-3">
+<img alt="Related product black t-shirt" class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="Man in black t-shirt urban setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMW98-r_rVn3PWnZUMnvGqee5C93Le53cZ5YF90sXyYOdodQ8HfROSO6ugH5uZdRTc-mvmoXD-7nL1jbj6vZYZAdrRcmPRnRjt4fskzB9GuPIwu1Jq6TCQDFBuCaWn7DqvzaPSCRLzPV6GlUsxXVwCns-mCQ_z2myK1CpX_7zZHJzsaK03KrPm1e6-B3O2LxjvaGvvpY7lk-nnEU0mUuxXqrR-nV8_EKeqWku_WDIDCc4Kky4R1vTAaN15B9FZirrkQ7MGrvGwXxs"/>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Midnight Mountain Tee</h3>
+<p class="mt-1 text-sm font-medium text-primary">$29.99</p>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-slate-100 mb-3">
+<img alt="Related product beige t-shirt" class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="Woman in white t-shirt close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPMVgDfe2057xLqoIg8iU-vowFnCv3nZuUj1Sluglbdc3ngOqhqWPULDbUyFhr7qIP2smf0FdN37tAqDqeOKcEm9_wmrZbVinnV_3S3vhKASkXmOiM4OOv-lQyyFKj0GKlODOFaAQ-eOmMWWqwZ879XqiRaYr615swhqMnTHYqDQaFZiR__j9PgBlSISMl5wZuLpHFtj93tmOlbjVVB7pvBN_XUCiCSmbr-8vnagSmmG5JWtMgiqLYa-rFaU5x0Tr2a4y28kDMq7U"/>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Desert Sand Essential</h3>
+<p class="mt-1 text-sm font-medium text-primary">$24.99</p>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer hidden sm:block">
+<div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-slate-100 mb-3">
+<img alt="Related product black long sleeve" class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="Man in black shirt studio shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-Atr3XL7LwLo5fEZFP5liVbADk_novcjoNS4mGr3teX72AtYsoIYgPEybtL8zw3TVQH103qCcx-fYqZ9HYgAD97mOiV0k9jJ9VQhAf9NjCBJWtY9MZGLlQ-xHRhUECvIjgCSSx6BjHRfE44nnV2pFM6QRjpxlDqccSk2HNVbooUGX0-fZgsPqHMC05exArjmdKd88iRsaGYJj8FdRbmt-Ai-YQN6e9qgfzwx6gJkR7yaUqx_hnXHzkius0NRCP4abhYKfe_5wdkw"/>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Onyx Long Sleeve</h3>
+<p class="mt-1 text-sm font-medium text-primary">$34.99</p>
+</div>
+<!-- Product Card 4 -->
+<div class="group cursor-pointer hidden lg:block">
+<div class="relative aspect-[4/5] overflow-hidden rounded-lg bg-slate-100 mb-3">
+<img alt="Related product grey t-shirt" class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500" data-alt="Black t-shirt folded flat lay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX_sr6CoFAfQw6sovKYW-u8iRPMkCANVASxhwrJPDXnpq0_gi6mGFD77SkbjFOWpos_Bz_7oq_faV4nmcs5Jk0CrKWrmmGCNNpoGbxZIuXmnL9gHozv4VuPkMrHWh0J_vXYMJDwj5GCitJ68C34_B_3OvlaYA9VjIGOjAbl_1DbR4L4N5ZnmHI05-3OaPESwa0OeTb5alQgl_dKu3FpwK65NyGhwlYyzT1o0LF-Pmrgq3AkOZwhNgoR0QPt3artVRvOCTeOmUvEDY"/>
+</div>
+<h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">Slate Grey Classic</h3>
+<p class="mt-1 text-sm font-medium text-primary">$29.99</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-background-dark text-white pt-12 pb-8 mt-auto border-t border-primary/20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons text-primary text-3xl">forest</span>
+<span class="font-bold text-xl tracking-tight">Nature Boutique</span>
+</div>
+<p class="text-slate-400 text-sm">Premium eco-friendly apparel delivered to your door. Wear the change you want to see.</p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-sm uppercase tracking-wider text-slate-300">Shop</h4>
+<ul class="space-y-2 text-sm text-slate-400">
+<li><a class="hover:text-white" href="#">New Arrivals</a></li>
+<li><a class="hover:text-white" href="#">Men</a></li>
+<li><a class="hover:text-white" href="#">Women</a></li>
+<li><a class="hover:text-white" href="#">Accessories</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-sm uppercase tracking-wider text-slate-300">Support</h4>
+<ul class="space-y-2 text-sm text-slate-400">
+<li><a class="hover:text-white" href="#">Track Order</a></li>
+<li><a class="hover:text-white" href="#">Returns &amp; Exchanges</a></li>
+<li><a class="hover:text-white" href="#">Size Guide</a></li>
+<li><a class="hover:text-white" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-sm uppercase tracking-wider text-slate-300">Stay Connected</h4>
+<div class="flex space-x-4 mb-4">
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-icons">facebook</span></a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-icons">camera_alt</span></a> <!-- Instagram Proxy -->
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-icons">alternate_email</span></a>
+</div>
+<p class="text-xs text-slate-500">Subscribe for updates and exclusive offers.</p>
+</div>
+</div>
+<div class="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+<p>© 2023 Nature Boutique. All rights reserved.</p>
+<div class="flex items-center gap-4 mt-4 md:mt-0">
+<span class="material-icons text-slate-400 text-lg">local_shipping</span>
+<span class="material-icons text-slate-400 text-lg">lock</span>
+<span class="material-icons text-slate-400 text-lg">verified</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
