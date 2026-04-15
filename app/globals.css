@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 140 20% 97%;
+    --foreground: 160 50% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 50% 15%;
+    --primary: 160 80% 18%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 160 80% 25%;
+    --secondary: 158 64% 52%;
+    --secondary-foreground: 160 80% 18%;
+    --accent: 158 64% 52%;
+    --accent-foreground: 160 80% 18%;
+    --muted: 140 20% 95%;
+    --muted-foreground: 160 20% 40%;
+    --border: 160 20% 90%;
+    --input: 160 20% 90%;
+    --ring: 160 80% 18%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 160 40% 8%;
+    --foreground: 140 20% 95%;
+    --card: 160 40% 12%;
+    --card-foreground: 140 20% 95%;
+    --primary: 158 64% 52%;
+    --primary-foreground: 160 50% 10%;
+    --primary-light: 158 64% 60%;
+    --secondary: 160 80% 18%;
+    --secondary-foreground: 140 20% 95%;
+    --accent: 158 64% 52%;
+    --accent-foreground: 160 50% 10%;
+    --muted: 160 40% 15%;
+    --muted-foreground: 140 20% 70%;
+    --border: 160 30% 20%;
+    --input: 160 30% 20%;
+    --ring: 158 64% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer components {
+  .glass-header {
+    @apply bg-white/85 dark:bg-forest-dark/85 backdrop-blur-xl;
+    border-bottom: 1px solid rgba(6, 76, 57, 0.05);
+  }
+
+  .dark .glass-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .product-card:hover .garment-view {
+    opacity: 0;
+  }
+
+  .product-card:hover .design-view {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .cart-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .cart-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .cart-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+
+  .dark .cart-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
